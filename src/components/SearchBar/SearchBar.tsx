@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchInput, setSearchInput] = useState('');
+  const navigate = useNavigate();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    setSearchInput(e.target.value);
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      navigate(`/recipe/${searchInput}`);
+    }
+  };
+
   const BarStyle = {
     width: '20rem',
     background: '#F0F0F0',
@@ -14,13 +24,14 @@ export const SearchBar = () => {
 
   return (
     <>
-      <div>Search Bar</div>
       <input
+        type="search"
         style={BarStyle}
         key="search-bar"
-        value={searchTerm}
+        value={searchInput}
         placeholder={'Search Recipe'}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       />
     </>
   );
