@@ -11,7 +11,7 @@ export const SearchBar = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      navigate(`/recipe/${searchInput}`);
+      navigate(`/recipes/${searchInput}`);
     }
   };
 
