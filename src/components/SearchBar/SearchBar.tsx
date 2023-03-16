@@ -24,15 +24,17 @@ export const SearchBar = () => {
 
   return (
     <>
-      <input
-        type="search"
-        style={BarStyle}
-        key="search-bar"
-        value={searchInput}
-        placeholder={'Search Recipe'}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-      />
+      <div className="flex justify-center">
+        <input
+          type="search"
+          style={BarStyle}
+          key="search-bar"
+          value={searchInput}
+          placeholder={'Search Recipe'}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+        />
+      </div>
     </>
   );
 };

@@ -14,16 +14,27 @@ export const AllRecipes = () => {
   //build out dropdowns for filters + corresponding state
 
   return (
-    <div>
-      {data.results?.map((recipe) => (
-        // make a new component for individual recipe
-        <div key={recipe.id}>
-          <Link to={`/recipe/${recipe.id}`}>
-            <img src={recipe.image} />
-            <h1>{recipe.title}</h1>
-          </Link>
-        </div>
-      ))}
+    <div className="bg-mainBg">
+      <div className="grid grid-cols-4 px-20 gap-10 mt-10 mb-10">
+        {data.results?.map((recipe) => (
+          <div className="px-2" key={recipe.id}>
+            <Link to={`/recipe/${recipe.id}`} className="group">
+              <div className="h-min rounded-lg">
+                <div className="overflow-hidden rounded-lg ">
+                  <img
+                    className="object-cover rounded-lg aspect-square
+                  group-hover:scale-125 transition-all duration-250"
+                    src={recipe.image}
+                  />
+                </div>
+                <h1 className="text-xl mt-3 group-hover:text-title-green">
+                  {recipe.title}
+                </h1>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

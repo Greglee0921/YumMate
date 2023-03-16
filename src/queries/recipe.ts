@@ -2,7 +2,7 @@
 
 export const useSearchRecipesByQuery = async (string: string) => {
   const data = await fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=fc4179225f7d4a14826360cf3d3cab35&query=${string}&number=1`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=fc4179225f7d4a14826360cf3d3cab35&query=${string}&number=12`
   );
 
   const recipeList = await data.json();

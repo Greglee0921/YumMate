@@ -1,14 +1,13 @@
-import { Navbar, SearchBar } from 'components';
+import { Navbar } from 'components';
 import { Pages } from 'pages/Pages';
 import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen bg-mainBg dark:bg-gray-900">
       <BrowserRouter>
         <Navbar />
-        <SearchBar />
-        <Pages />
+        <Pages className="bg-mainBg" />
         {/* <div className="max-w-screen-xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="my-3 text-4xl font-bold text-gray-800 sm:text-5xl sm:tracking-tight lg:text-8xl dark:text-gray-200">

@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,4 +20,19 @@ code {
 
 .ring-expand {
   @apply transition-all hover:ring-2 ring-gray-900 dark:ring-gray-100 hover:ring-offset-4 hover:ring-offset-white dark:hover:ring-offset-gray-800;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url(fonts/proximaNova-regular.otf) format(opentype);
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url(fonts/Proxima\ Nova\ Alt\ Bold.otf) format(opentype);
+  font-weight: 700;
+}
+
+h1 {
+  font-weight: 700;
 }
