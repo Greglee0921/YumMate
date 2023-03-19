@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 export const SingleRecipe = () => {
   const params = useParams();
 
-  const { data, isSuccess } = useQuery(
+  const { data, isSuccess, isError } = useQuery(
     ['recipeInfo', params.recipedId],
     () => useSearchRecipeById(params.recipeId),
     { refetchOnWindowFocus: false }
@@ -14,6 +14,7 @@ export const SingleRecipe = () => {
 
   console.log('data: ', data);
   console.log('isSuccess: ', isSuccess);
+  console.log('isError: ', isError);
   const steps = data.analyzedInstructions[0].steps;
   const servings = data.servings;
   const ingredientsArray = data.extendedIngredients;
@@ -21,7 +22,7 @@ export const SingleRecipe = () => {
   console.log('steps: ', steps);
 
   return (
-    <div className="bg-mainBg px-60">
+    <div className="bg-mainBg px-60 mt-10">
       <div>
         <h1 className="text-5xl font-black">{data?.title}</h1>
       </div>

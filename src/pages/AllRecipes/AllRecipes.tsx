@@ -27,7 +27,7 @@ export const AllRecipes = () => {
                     src={recipe.image}
                   />
                 </div>
-                <h1 className="text-xl mt-3 group-hover:text-title-green">
+                <h1 className="text-xl mt-3 group-hover:text-link-hilight">
                   {recipe.title}
                 </h1>
               </div>

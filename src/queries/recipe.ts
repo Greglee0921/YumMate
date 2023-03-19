@@ -19,3 +19,13 @@ export const useSearchRecipeById = async (string: string) => {
   console.log('recipeInfo: ', recipeInfo);
   return recipeInfo;
 };
+
+export const getPopularRecipes = async () => {
+  const data = await fetch(
+    `https://api.spoonacular.com/recipes/random?apiKey=fc4179225f7d4a14826360cf3d3cab35&number=12`
+  );
+
+  const popularList = await data.json();
+  console.log('popularList: ', popularList);
+  return popularList;
+};
