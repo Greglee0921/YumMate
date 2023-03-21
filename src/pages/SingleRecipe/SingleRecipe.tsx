@@ -13,7 +13,7 @@ export const SingleRecipe = () => {
   const [favorited, setFavorited] = useState(false);
   console.log('favorited', favorited);
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     ['recipeInfo', params.recipedId],
     () => useSearchRecipeById(params.recipeId),
     { refetchOnWindowFocus: false }
