@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -36,7 +36,7 @@ export const Popular = () => {
     }
   };
 
-  console.log('favorite: ', favorite);
+  // console.log('favorite: ', favorite);
 
   // const { data } = useQuery(['recipe'], () => getPopularRecipes(), {
   //   placeholderData: [],
