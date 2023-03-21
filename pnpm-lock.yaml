@@ -8,6 +8,7 @@ specifiers:
   '@mui/material': ^5.11.13
   '@splidejs/react-splide': ^0.7.12
   '@splidejs/splide': ^4.1.4
+  '@splidejs/splide-extension-auto-scroll': github:splidejs/splide-extension-auto-scroll
   '@svgr/core': ^6.2.1
   '@testing-library/jest-dom': ^5.16.4
   '@testing-library/react': ^13.2.0
@@ -36,6 +37,7 @@ specifiers:
   react-icons: ^4.8.0
   react-query: ^3.39.3
   react-router-dom: ^6.8.2
+  react-toastify: ^9.1.2
   tailwindcss: ^3.0.24
   typescript: ^4.6.4
   unplugin-icons: ^0.14.3
@@ -50,11 +52,13 @@ dependencies:
   '@mui/material': 5.11.13_ym47ak2mxkx7rfqgdbenb5amr4
   '@splidejs/react-splide': 0.7.12
   '@splidejs/splide': 4.1.4
+  '@splidejs/splide-extension-auto-scroll': github.com/splidejs/splide-extension-auto-scroll/bcd128cfa7d84a9c50b18d3430ec643646d51800
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-icons: 4.8.0_react@18.1.0
   react-query: 3.39.3_ef5jwxihqo6n7gxfmzogljlgcm
   react-router-dom: 6.8.2_ef5jwxihqo6n7gxfmzogljlgcm
+  react-toastify: 9.1.2_ef5jwxihqo6n7gxfmzogljlgcm
 
 devDependencies:
   '@iconify/json': 2.1.43
@@ -3988,6 +3992,17 @@ packages:
       react: 18.1.0
     dev: false
 
+  /react-toastify/9.1.2_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-PBfzXO5jMGEtdYR5jxrORlNZZe/EuOkwvwKijMatsZZm8IZwLj01YvobeJYNjFcA6uy6CVrx2fzL9GWbhWPTDA==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.2.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
+
   /react-transition-group/4.4.5_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
@@ -4903,3 +4918,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  github.com/splidejs/splide-extension-auto-scroll/bcd128cfa7d84a9c50b18d3430ec643646d51800:
+    resolution: {tarball: https://codeload.github.com/splidejs/splide-extension-auto-scroll/tar.gz/bcd128cfa7d84a9c50b18d3430ec643646d51800}
+    name: '@splidejs/splide-extension-auto-scroll'
+    version: 0.5.3
+    dev: false

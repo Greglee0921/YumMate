@@ -1,3 +1,4 @@
+import { Preloader } from 'components/Preloader';
 import { useSearchRecipesByQuery } from 'queries/recipe';
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
@@ -5,7 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 export const AllRecipes = () => {
   const params = useParams();
 
-  const { data } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     ['recipe', params.searchTerm],
     () => useSearchRecipesByQuery(params.searchTerm),
     { placeholderData: [], refetchOnWindowFocus: false }
@@ -13,9 +14,19 @@ export const AllRecipes = () => {
 
   //build out dropdowns for filters + corresponding state
 
+  if (isLoading || isFetching) {
+    return <Preloader />;
+  }
+
   return (
-    <div className="bg-mainBg">
-      <div className="grid grid-cols-4 px-20 gap-10 mt-10 mb-10">
+    <div className="bg-mainBg px-20 py-10">
+      <div className="flex items-end mb-10 ml-3 gap-8">
+        <h1 className="text-5xl font-black text-link-hilight">
+          {params.searchTerm}
+        </h1>
+        <h1 className="text-2xl text-totalResults font-bold ">{`${data.totalResults} recipes`}</h1>
+      </div>
+      <div className="grid grid-cols-4 gap-10">
         {data.results?.map((recipe) => (
           <div className="px-2" key={recipe.id}>
             <Link to={`/recipe/${recipe.id}`} className="group">

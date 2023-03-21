@@ -17,9 +17,10 @@ export const SearchBar = () => {
 
   const BarStyle = {
     width: '20rem',
-    background: '#F0F0F0',
+    background: '#ECD9B6',
     border: 'none',
-    padding: '0.5rem'
+    padding: '0.5rem',
+    spellcheck: true
   };
 
   return (
@@ -30,7 +31,7 @@ export const SearchBar = () => {
           style={BarStyle}
           key="search-bar"
           value={searchInput}
-          placeholder={'Search Recipe'}
+          placeholder={'Search Recipe...'}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         />
