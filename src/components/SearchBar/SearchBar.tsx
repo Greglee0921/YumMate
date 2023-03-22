@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const SearchBar = () => {
+export const SearchBar = ({ nav }) => {
   const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
 
@@ -15,20 +15,16 @@ export const SearchBar = () => {
     }
   };
 
-  const BarStyle = {
-    width: '20rem',
-    background: '#ECD9B6',
-    border: 'none',
-    padding: '0.5rem',
-    spellcheck: true
-  };
-
   return (
     <>
       <div className="flex justify-center">
         <input
+          className={
+            nav
+              ? 'w-[15rem] h-10 bg-mainBg p-[0.75rem] rounded-full'
+              : 'w-[35rem] h-15 p-[1rem]'
+          }
           type="search"
-          style={BarStyle}
           key="search-bar"
           value={searchInput}
           placeholder={'Search Recipe...'}

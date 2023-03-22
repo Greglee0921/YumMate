@@ -20,6 +20,7 @@ export const SingleRecipe = () => {
   );
 
   console.log('data: ', data);
+  const recipeId = Number(params.recipeId);
 
   if (isLoading || isFetching) {
     return <Preloader />;
@@ -60,20 +61,21 @@ export const SingleRecipe = () => {
     }
   };
 
-  // const handleDeleteRecipe = (id) => {
-  //   const check = localStorage.getItem('favoriteRecipes');
-  //   const favoriteRecipes = JSON.parse(check);
-  //   const arr = favoriteRecipes.filter((current) => {
-  //     console.log('current.id: ', current.id);
-  //     console.log('recipeId: ', id);
-  //     if (current.id != id) {
-  //       return current;
-  //     }
-  //   });
-  //   console.log('Edited favoriteRecipes array: ', arr);
-  //   localStorage.setItem('favoriteRecipes', JSON.stringify(arr));
-  //   toast('Recipe succesfully removed from favorites!');
-  // };
+  const handleDeleteFavorite = (id: number) => {
+    const check = localStorage.getItem('favoriteRecipes');
+    const favoriteRecipes = JSON.parse(check);
+    const arr = favoriteRecipes.filter((current) => {
+      console.log('current.id: ', current.id);
+      console.log('recipeId: ', id);
+      if (current.id != id) {
+        return true;
+      }
+      return false;
+    });
+    console.log('Edited favoriteRecipes array: ', arr);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(arr));
+    toast('Recipe succesfully removed from favorites!');
+  };
 
   return (
     <div className="bg-mainBg px-60 mt-10">
@@ -104,6 +106,12 @@ export const SingleRecipe = () => {
             onClick={handleSaveRecipe}
           />
           <span>Save Recipe</span>
+          <div
+            className="ml-10 hover: cursor-pointer"
+            onClick={() => handleDeleteFavorite(recipeId)}
+          >
+            Remove From Favorites
+          </div>
         </div>
       </div>
       <div className="my-5">
