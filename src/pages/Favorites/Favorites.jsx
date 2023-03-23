@@ -18,7 +18,7 @@ export const Favorites = () => {
       <h1 className="text-5xl text-link-hilight font-black mb-10 md:mb-20">
         Favorites
       </h1>
-      {favorites ? (
+      {favorites && favorites.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-4 md:gap-10">
           {favorites.map((recipe) => (
             <div className="px-2 md:mb-0 mb-4" key={recipe.id}>
