@@ -1,19 +1,17 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
 
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    void getFavorites();
-  }, []);
-
   const getFavorites = async () => {
     const check = localStorage.getItem('favoriteRecipes');
     setFavorites(JSON.parse(check));
   };
+
+  useEffect(() => {
+    getFavorites();
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center md:px-20 py-5 md:py-10">

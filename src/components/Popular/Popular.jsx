@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { useEffect, useState } from 'react';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -12,29 +11,25 @@ export const Popular = () => {
   const [popular, setPopular] = useState([]);
   // const [favorite, setFavorite] = useState(false);
 
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    void getPopular();
-  }, []);
-
   const getPopular = async () => {
     const check = localStorage.getItem('popular');
     if (check) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       setPopular(JSON.parse(check));
     } else {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/random?apiKey=fc4179225f7d4a14826360cf3d3cab35&number=12`
       );
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const data = await api.json();
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       localStorage.setItem('popular', JSON.stringify(data.recipes));
       setPopular(data.recipes);
       console.log('data: ', data.recipes);
     }
   };
+
+  useEffect(() => {
+    getPopular();
+  }, []);
 
   // console.log('favorite: ', favorite);
 
@@ -43,6 +38,7 @@ export const Popular = () => {
   //   refetchOnWindowFocus: false
   // });
   // console.log('data: ', data.recipes);
+  console.log('popular: ', popular);
 
   return (
     <div className="bg-mainBg h-screen md:h-[80vh] flex flex-col items-center py-20 px-10">

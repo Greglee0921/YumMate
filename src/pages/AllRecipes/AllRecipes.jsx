@@ -1,7 +1,7 @@
-import { Preloader } from 'components/Preloader';
-import { useSearchRecipesByQuery } from 'queries/recipe';
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
+import { Preloader } from '../../components/Preloader';
+import { useSearchRecipesByQuery } from '../../queries/recipe';
 
 export const AllRecipes = () => {
   const params = useParams();

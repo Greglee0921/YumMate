@@ -16,6 +16,9 @@ module.exports = {
       },
       backgroundImage: {
         hero: "url('../src/assets/cutting-board2.jpg')"
+      },
+      screens: {
+        custom: '1200px'
       }
     }
   },

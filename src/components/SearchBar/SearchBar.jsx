@@ -5,11 +5,11 @@ export const SearchBar = ({ nav }) => {
   const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     setSearchInput(e.target.value);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       navigate(`/recipes/${searchInput}`);
     }

@@ -7,7 +7,7 @@ const App = () => {
     <div className="min-h-screen bg-mainBg dark:bg-gray-900">
       <BrowserRouter>
         <Navbar />
-        <Pages className="bg-mainBg" />
+        <Pages />
       </BrowserRouter>
     </div>
   );

@@ -1,6 +1,6 @@
 //figure out how to add filter args
 
-export const useSearchRecipesByQuery = async (string: string) => {
+export const useSearchRecipesByQuery = async (string) => {
   const data = await fetch(
     `https://api.spoonacular.com/recipes/complexSearch?apiKey=fc4179225f7d4a14826360cf3d3cab35&query=${string}&addRecipeInformation=false&number=12`
   );
@@ -10,7 +10,7 @@ export const useSearchRecipesByQuery = async (string: string) => {
   return recipeList;
 };
 
-export const useSearchRecipeById = async (string: string) => {
+export const useSearchRecipeById = async (string) => {
   const data = await fetch(
     `https://api.spoonacular.com/recipes/${string}/information?apiKey=fc4179225f7d4a14826360cf3d3cab35&includeNutrition=false`
   );

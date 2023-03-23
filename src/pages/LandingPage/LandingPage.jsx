@@ -1,6 +1,6 @@
 import React from 'react';
-import { SearchBar } from 'components';
-import { Popular } from 'components/Popular';
+import { Popular } from '../../components/Popular';
+import { SearchBar } from '../../components/SearchBar';
 
 export const LandingPage = () => {
   return (
