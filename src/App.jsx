@@ -1,6 +1,6 @@
-import { Navbar } from 'components';
-import { Pages } from 'pages/Pages';
 import { BrowserRouter } from 'react-router-dom';
+import { Navbar } from './components';
+import { Pages } from './pages/Pages.jsx';
 
 const App = () => {
   return (

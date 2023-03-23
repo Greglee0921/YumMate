@@ -1,6 +1,6 @@
 import React from 'react';
-import { AllRecipes, Favorites, LandingPage, SingleRecipe } from 'pages';
 import { Route, Routes } from 'react-router-dom';
+import { AllRecipes, Favorites, LandingPage, SingleRecipe } from './index.js';
 
 export const Pages = () => {
   return (

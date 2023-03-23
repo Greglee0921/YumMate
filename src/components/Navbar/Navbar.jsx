@@ -1,7 +1,7 @@
 // import AddIcon from '@mui/icons-material/Add';
-import { SearchBar } from 'components/SearchBar';
 import { Link } from 'react-router-dom';
 import cookingAppLogo from '../../assets/cooking-app-logo.png';
+import { SearchBar } from '../SearchBar';
 
 export const Navbar = () => {
   const nav = true;
