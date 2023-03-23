@@ -21,8 +21,8 @@ export const SearchBar = ({ nav }) => {
         <input
           className={
             nav
-              ? 'w-[15rem] h-10 bg-mainBg p-[0.75rem] rounded-full'
-              : 'w-[35rem] h-15 p-[1rem]'
+              ? 'w-[5rem] md:w-[15rem] h-[2rem] bg-mainBg p-[0.75rem] md:p-[1rem] rounded-full'
+              : 'w-[20rem] md:w-[35rem] h-15 p-[1rem]'
           }
           type="search"
           key="search-bar"

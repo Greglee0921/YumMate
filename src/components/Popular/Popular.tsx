@@ -45,19 +45,25 @@ export const Popular = () => {
   // console.log('data: ', data.recipes);
 
   return (
-    <div className="bg-mainBg h-[80vh] flex flex-col items-center py-20 px-10">
-      <h3 className="text-4xl font-extrabold text-link-hilight">
+    <div className="bg-mainBg h-screen md:h-[80vh] flex flex-col items-center py-20 px-10">
+      <h3 className="text-4xl font-extrabold text-link-hilight mb-10 md:mb-0">
         Popular Picks
       </h3>
       <Splide
         options={{
           perPage: 4,
+          breakpoints: {
+            640: {
+              perPage: 1,
+              arrows: false
+            }
+          },
           arrows: true,
           pagination: false,
           drag: 'free',
           gap: '1rem'
         }}
-        className="my-10 w-[85%] px-10"
+        className="md:my-10 w-[85%] md:px-10"
       >
         {popular.map((recipe) => (
           <SplideSlide className="" key={recipe.id}>

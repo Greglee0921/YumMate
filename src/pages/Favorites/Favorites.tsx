@@ -16,11 +16,13 @@ export const Favorites = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center px-20 py-10">
-      <h1 className="text-5xl text-link-hilight font-black mb-20">Favorites</h1>
-      <div className="grid grid-cols-4 gap-10">
+    <div className="flex flex-col justify-center items-center md:px-20 py-5 md:py-10">
+      <h1 className="text-5xl text-link-hilight font-black mb-10 md:mb-20">
+        Favorites
+      </h1>
+      <div className="grid grid-cols-2 md:grid-cols-4 md:gap-10">
         {favorites.map((recipe) => (
-          <div className="px-2" key={recipe.id}>
+          <div className="px-2 md:mb-0 mb-4" key={recipe.id}>
             <Link to={`/recipe/${recipe.id}`} className="group">
               <div className="h-min rounded-lg">
                 <div className="overflow-hidden rounded-lg ">
@@ -30,7 +32,7 @@ export const Favorites = () => {
                     src={recipe.image}
                   />
                 </div>
-                <h1 className="text-xl mt-3 group-hover:text-link-hilight">
+                <h1 className="text-xl mt-0 md:mt-3 group-hover:text-link-hilight">
                   {recipe.title}
                 </h1>
               </div>

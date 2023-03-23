@@ -7,19 +7,19 @@ export const Navbar = () => {
   const nav = true;
 
   return (
-    <header className="flex h-[75px] justify-between items-center w-full bg-nav px-10 ">
+    <header className="flex h-[75px] justify-between items-center w-full bg-nav  px-2 md:px-10">
       <Link to={'/'} className="flex items-center gap-2">
         <img
           className="h-[60px] object-cover aspect-square"
           src={cookingAppLogo}
         />
-        <h1 className="text-xl text-logo font-black font-['Nunito_Sans']">
+        <h1 className="text-lg md:text-xl text-logo font-black font-['Nunito_Sans']">
           YumMate
         </h1>
       </Link>
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-5">
         <Link to={'/favorites'}>
-          <p className="font-extrabold text-mainBg hover:text-logo text-xl">
+          <p className="font-extrabold text-mainBg hover:text-logo text-md md:text-xl">
             Favorites
           </p>
           {/* <AddIcon className="text-white" /> */}
