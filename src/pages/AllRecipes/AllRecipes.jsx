@@ -12,8 +12,6 @@ export const AllRecipes = () => {
     { placeholderData: [], refetchOnWindowFocus: false }
   );
 
-  //build out dropdowns for filters + corresponding state
-
   if (isLoading || isFetching) {
     return <Preloader />;
   }

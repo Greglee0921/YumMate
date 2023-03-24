@@ -1,37 +1,26 @@
-//figure out how to add filter args
+const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
 
 export const useSearchRecipesByQuery = async (string) => {
   const data = await fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${
-      import.meta.env.VITE_SPOONACULAR_API_KEY
-    }&query=${string}&addRecipeInformation=false&number=12`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${string}&addRecipeInformation=false&number=12`
   );
-
   const recipeList = await data.json();
-  console.log('recipeList: ', recipeList);
   return recipeList;
 };
 
 export const useSearchRecipeById = async (string) => {
   const data = await fetch(
-    `https://api.spoonacular.com/recipes/${string}/information?apiKey=${
-      import.meta.env.VITE_SPOONACULAR_API_KEY
-    }&includeNutrition=false`
+    `https://api.spoonacular.com/recipes/${string}/information?apiKey=${apiKey}&includeNutrition=false`
   );
-
   const recipeInfo = await data.json();
-  console.log('recipeInfo: ', recipeInfo);
   return recipeInfo;
 };
 
 export const getPopularRecipes = async () => {
   const data = await fetch(
-    `https://api.spoonacular.com/recipes/random?apiKey=${
-      import.meta.env.VITE_SPOONACULAR_API_KEY
-    }&number=12`
+    `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=12`
   );
-
-  const popularList = await data.json();
-  console.log('popularList: ', popularList);
-  return popularList;
+  const popularRecipes = await data.json();
+  console.log('popularRecipes: ', popularRecipes);
+  return popularRecipes;
 };

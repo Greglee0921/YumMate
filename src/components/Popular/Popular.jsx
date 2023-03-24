@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 // import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
-// import { getPopularRecipes } from 'queries/recipe';
-// import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import { getPopularRecipes } from '../../queries/recipe.js';
+
+// import { useQuery } from 'react-query';
 
 export const Popular = () => {
   const [popular, setPopular] = useState([]);
@@ -16,16 +17,11 @@ export const Popular = () => {
     if (check) {
       setPopular(JSON.parse(check));
     } else {
-      const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${
-          import.meta.env.VITE_SPOONACULAR_API_KEY
-        }&number=12`
-      );
-      const data = await api.json();
-
-      localStorage.setItem('popular', JSON.stringify(data.recipes));
-      setPopular(data.recipes);
-      console.log('data: ', data.recipes);
+      const popularRecipes = await getPopularRecipes();
+      console.log('popularRecipes after: ', popularRecipes);
+      localStorage.setItem('popular', JSON.stringify(popularRecipes.recipes));
+      setPopular(popularRecipes.recipes);
+      console.log('popularRecipes: ', popularRecipes.recipes);
     }
   };
 
