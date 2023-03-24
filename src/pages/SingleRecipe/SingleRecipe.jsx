@@ -97,18 +97,18 @@ export const SingleRecipe = () => {
             </h1>
 
             <div className="flex items-center justify-center my-5 xl:mt-5 gap-1 md:gap-2 md:ml-10 w-full">
-              <button className="rounded-3xl bg-link-hilight py-1 px-3 text-white font-bold hover:-translate-y-1 transition duration-300 ease-in-out">
-                <BookmarkAddIcon
-                  className="hover: cursor-pointer"
-                  onClick={handleSaveRecipe}
-                />
+              <button
+                onClick={handleSaveRecipe}
+                className="rounded-3xl bg-link-hilight py-1 px-3 text-white font-bold hover:-translate-y-1 transition duration-300 ease-in-out"
+              >
+                <BookmarkAddIcon className="hover: cursor-pointer" />
                 <span>Save Recipe</span>
               </button>
-              <button className="md:ml-4 rounded-3xl bg-link-hilight py-1 px-3 text-white font-bold hover:-translate-y-1 transition duration-300 ease-in-out">
-                <BookmarkRemoveIcon
-                  className="hover: cursor-pointer"
-                  onClick={() => handleDeleteFavorite(recipeId)}
-                />
+              <button
+                onClick={() => handleDeleteFavorite(recipeId)}
+                className="md:ml-4 rounded-3xl bg-link-hilight py-1 px-3 text-white font-bold hover:-translate-y-1 transition duration-300 ease-in-out"
+              >
+                <BookmarkRemoveIcon className="hover: cursor-pointer" />
                 Remove Favorite
               </button>
             </div>
