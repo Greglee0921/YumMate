@@ -3,6 +3,11 @@ import { Popular } from '../../components/Popular';
 import { SearchBar } from '../../components/SearchBar';
 
 export const LandingPage = () => {
+  console.log('api key: ', import.meta.env.VITE_SPOONACULAR_API_KEY);
+  console.log(
+    'api key type: ',
+    typeof import.meta.env.VITE_SPOONACULAR_API_KEY
+  );
   return (
     <>
       <div className="bg-hero bg-no-repeat bg-cover bg-center bg-fixed h-screen md:h-[60vh] flex flex-col items-center  pt-[40%] md:pt-0 md:justify-center">

@@ -17,7 +17,9 @@ export const Popular = () => {
       setPopular(JSON.parse(check));
     } else {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=fc4179225f7d4a14826360cf3d3cab35&number=12`
+        `https://api.spoonacular.com/recipes/random?apiKey=${
+          import.meta.env.VITE_SPOONACULAR_API_KEY
+        }&number=12`
       );
       const data = await api.json();
 

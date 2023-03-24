@@ -1,9 +1,10 @@
 import preloader from '../../assets/frying_pan_edit.png';
 
 export const Preloader = () => {
+  window.scrollTo(0, 0);
   return (
-    <div className="bg-nav flex flex-col items-center h-screen md:px-40">
-      <img className="object-cover" src={preloader} />
+    <div className="bg-nav flex flex-col justify-center items-center h-[91vh] lg:px-40">
+      <img className="" src={preloader} />
     </div>
   );
 };

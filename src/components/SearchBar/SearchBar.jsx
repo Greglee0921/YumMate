@@ -9,15 +9,20 @@ export const SearchBar = ({ nav }) => {
     setSearchInput(e.target.value);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      navigate(`/recipes/${searchInput}`);
-    }
+  // const handleKeyDown = (e) => {
+  //   if (e.key === 'Enter') {
+  //     navigate(`/recipes/${searchInput}`);
+  //   }
+  // };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/recipes/${searchInput}`);
   };
 
   return (
     <>
-      <div className="flex justify-center">
+      <form onSubmit={handleSubmit} className="flex justify-center">
         <input
           className={
             nav
@@ -29,9 +34,9 @@ export const SearchBar = ({ nav }) => {
           value={searchInput}
           placeholder={'Search Recipe...'}
           onChange={handleChange}
-          onKeyDown={handleKeyDown}
+          // onKeyDown={handleKeyDown}
         />
-      </div>
+      </form>
     </>
   );
 };

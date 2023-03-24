@@ -2,7 +2,9 @@
 
 export const useSearchRecipesByQuery = async (string) => {
   const data = await fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=fc4179225f7d4a14826360cf3d3cab35&query=${string}&addRecipeInformation=false&number=12`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${
+      import.meta.env.VITE_SPOONACULAR_API_KEY
+    }&query=${string}&addRecipeInformation=false&number=12`
   );
 
   const recipeList = await data.json();
@@ -12,7 +14,9 @@ export const useSearchRecipesByQuery = async (string) => {
 
 export const useSearchRecipeById = async (string) => {
   const data = await fetch(
-    `https://api.spoonacular.com/recipes/${string}/information?apiKey=fc4179225f7d4a14826360cf3d3cab35&includeNutrition=false`
+    `https://api.spoonacular.com/recipes/${string}/information?apiKey=${
+      import.meta.env.VITE_SPOONACULAR_API_KEY
+    }&includeNutrition=false`
   );
 
   const recipeInfo = await data.json();
@@ -22,7 +26,9 @@ export const useSearchRecipeById = async (string) => {
 
 export const getPopularRecipes = async () => {
   const data = await fetch(
-    `https://api.spoonacular.com/recipes/random?apiKey=fc4179225f7d4a14826360cf3d3cab35&number=12`
+    `https://api.spoonacular.com/recipes/random?apiKey=${
+      import.meta.env.VITE_SPOONACULAR_API_KEY
+    }&number=12`
   );
 
   const popularList = await data.json();

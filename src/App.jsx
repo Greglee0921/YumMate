@@ -4,7 +4,7 @@ import { Pages } from './pages/Pages.jsx';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-mainBg dark:bg-gray-900">
+    <div className="min-h-screen bg-mainBg">
       <BrowserRouter>
         <Navbar />
         <Pages />
