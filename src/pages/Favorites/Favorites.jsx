@@ -14,7 +14,7 @@ export const Favorites = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center md:px-20 py-5 md:py-10">
+    <div className="bg-mainBg flex flex-col justify-center items-center md:px-20 py-5 md:py-10">
       <h1 className="text-5xl text-link-hilight font-black mb-10 md:mb-20">
         Favorites
       </h1>

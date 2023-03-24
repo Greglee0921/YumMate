@@ -19,14 +19,14 @@ export const SingleRecipe = () => {
     { refetchOnWindowFocus: false }
   );
 
-  console.log('data: ', data);
+  // console.log('data: ', data);
   const recipeId = Number(params.recipeId);
 
   if (isLoading || isFetching) {
     return <Preloader />;
   }
 
-  const steps = data.analyzedInstructions[0].steps;
+  const steps = data.analyzedInstructions[0]?.steps;
   const servings = data.servings;
   const ingredientsArray = data.extendedIngredients;
 
@@ -35,7 +35,7 @@ export const SingleRecipe = () => {
 
     if (check) {
       const favoriteRecipes = JSON.parse(check);
-      console.log('favoriteRecipes: ', favoriteRecipes);
+      // console.log('favoriteRecipes: ', favoriteRecipes);
       for (let i = 0; i < favoriteRecipes.length; i++) {
         if (favoriteRecipes[i].id === data.id) {
           return;
@@ -53,7 +53,7 @@ export const SingleRecipe = () => {
       const favoriteRecipes = [
         { id: data.id, title: data.title, image: data.image }
       ];
-      console.log('favoriteRecipes : ', favoriteRecipes);
+      // console.log('favoriteRecipes : ', favoriteRecipes);
       localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
       toast('Recipe added to favorites!');
     }
@@ -63,14 +63,14 @@ export const SingleRecipe = () => {
     const check = localStorage.getItem('favoriteRecipes');
     const favoriteRecipes = JSON.parse(check);
     const arr = favoriteRecipes.filter((current) => {
-      console.log('current.id: ', current.id);
-      console.log('recipeId: ', id);
+      // console.log('current.id: ', current.id);
+      // console.log('recipeId: ', id);
       if (current.id != id) {
         return true;
       }
       return false;
     });
-    console.log('Edited favoriteRecipes array: ', arr);
+    // console.log('Edited favoriteRecipes array: ', arr);
     localStorage.setItem('favoriteRecipes', JSON.stringify(arr));
     toast('Recipe succesfully removed from favorites!');
   };
@@ -95,21 +95,22 @@ export const SingleRecipe = () => {
             <h1 className="text-4xl text-center font-black text-link-hilight md:mb-5">
               {data?.title}
             </h1>
-            <div>
-              <div className="flex my-5 xl:mt-5 gap-1 md:gap-2">
+
+            <div className="flex items-center justify-center my-5 xl:mt-5 gap-1 md:gap-2 md:ml-10 w-full">
+              <button className="rounded-3xl bg-link-hilight py-1 px-3 text-white font-bold hover:-translate-y-1 transition duration-300 ease-in-out">
                 <BookmarkAddIcon
                   className="hover: cursor-pointer"
                   onClick={handleSaveRecipe}
                 />
                 <span>Save Recipe</span>
-                <div className="md:ml-5">
-                  <BookmarkRemoveIcon
-                    className="hover: cursor-pointer"
-                    onClick={() => handleDeleteFavorite(recipeId)}
-                  />
-                  Remove Favorite
-                </div>
-              </div>
+              </button>
+              <button className="md:ml-4 rounded-3xl bg-link-hilight py-1 px-3 text-white font-bold hover:-translate-y-1 transition duration-300 ease-in-out">
+                <BookmarkRemoveIcon
+                  className="hover: cursor-pointer"
+                  onClick={() => handleDeleteFavorite(recipeId)}
+                />
+                Remove Favorite
+              </button>
             </div>
 
             <div className="flex gap-1">
@@ -171,19 +172,23 @@ export const SingleRecipe = () => {
         </div>
       </div>
 
-      <div className="py-5 px-5 md:px-20 md:w-[80%]">
-        <h2 className="text-xl font-bold text-link-hilight mb-2">
-          Preparation
-        </h2>
-        {steps?.map((step, index) => (
-          <div key={index} className="flex pb-4">
-            <p className="font-extrabold text-link-hilight mr-6">
-              {step.number}
-            </p>
-            <p>{step.step}</p>
-          </div>
-        ))}
-      </div>
+      {steps ? (
+        <div className="py-5 px-5 md:px-20 md:w-[80%]">
+          <h2 className="text-xl font-bold text-link-hilight mb-2">
+            Preparation
+          </h2>
+          {steps?.map((step, index) => (
+            <div key={index} className="flex pb-4">
+              <p className="font-extrabold text-link-hilight mr-6">
+                {step?.number}
+              </p>
+              <p>{step?.step}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

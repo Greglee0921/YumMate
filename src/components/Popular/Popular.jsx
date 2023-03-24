@@ -14,14 +14,14 @@ export const Popular = () => {
 
   const getPopular = async () => {
     const check = localStorage.getItem('popular');
-    if (check) {
+    if (check && check.length > 0) {
       setPopular(JSON.parse(check));
     } else {
       const popularRecipes = await getPopularRecipes();
-      console.log('popularRecipes after: ', popularRecipes);
+      // console.log('popularRecipes after: ', popularRecipes);
       localStorage.setItem('popular', JSON.stringify(popularRecipes.recipes));
       setPopular(popularRecipes.recipes);
-      console.log('popularRecipes: ', popularRecipes.recipes);
+      // console.log('popularRecipes: ', popularRecipes.recipes);
     }
   };
 
@@ -36,7 +36,7 @@ export const Popular = () => {
   //   refetchOnWindowFocus: false
   // });
   // console.log('data: ', data.recipes);
-  console.log('popular: ', popular);
+  // console.log('popular: ', popular);
 
   return (
     <div className="bg-mainBg h-screen md:h-[80vh] flex flex-col items-center py-20 px-10">
