@@ -6,8 +6,6 @@ import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from 'react-router-dom';
 import { getPopularRecipes } from '../../queries/recipe.js';
 
-// import { useQuery } from 'react-query';
-
 export const Popular = () => {
   const [popular, setPopular] = useState([]);
   // const [favorite, setFavorite] = useState(false);
@@ -18,25 +16,14 @@ export const Popular = () => {
       setPopular(JSON.parse(check));
     } else {
       const popularRecipes = await getPopularRecipes();
-      // console.log('popularRecipes after: ', popularRecipes);
       localStorage.setItem('popular', JSON.stringify(popularRecipes.recipes));
       setPopular(popularRecipes.recipes);
-      // console.log('popularRecipes: ', popularRecipes.recipes);
     }
   };
 
   useEffect(() => {
     getPopular();
   }, []);
-
-  // console.log('favorite: ', favorite);
-
-  // const { data } = useQuery(['recipe'], () => getPopularRecipes(), {
-  //   placeholderData: [],
-  //   refetchOnWindowFocus: false
-  // });
-  // console.log('data: ', data.recipes);
-  // console.log('popular: ', popular);
 
   return (
     <div className="bg-mainBg h-screen md:h-[80vh] flex flex-col items-center py-20 px-10">

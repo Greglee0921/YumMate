@@ -75,6 +75,13 @@ export const SingleRecipe = () => {
     toast('Recipe succesfully removed from favorites!');
   };
 
+  const editedSummary = (summary) => {
+    const lastPeriodIndex = summary.lastIndexOf('. ');
+    return summary.slice(0, lastPeriodIndex + 1);
+  };
+
+  // console.log('data', data);
+
   return (
     <div className="bg-mainBg pb-10">
       <ToastContainer
@@ -90,13 +97,13 @@ export const SingleRecipe = () => {
         theme="light"
       />
       <div className="flex flex-col custom:flex-row custom:h-[85vh] custom:border-b-[1px] custom:border-link-hilight">
-        <div className="flex flex-col items-center justify-center custom:w-[50%] px-5 custom:px-20">
-          <div className="flex flex-col h-[50vh] md:h-auto justify-center items-center">
-            <h1 className="text-4xl text-center font-black text-link-hilight md:mb-5">
+        <div className="flex flex-col items-center justify-center custom:w-[50%] px-5 custom:px-20 ">
+          <div className="flex flex-col h-[50vh] custom:h-auto justify-center items-center">
+            <h1 className="text-4xl text-center font-black text-link-hilight">
               {data?.title}
             </h1>
 
-            <div className="flex items-center justify-center my-5 xl:mt-5 gap-1 md:gap-2 md:ml-10 w-full">
+            <div className="flex items-center justify-center my-10 gap-1 md:gap-2 md:ml-10 w-full">
               <button
                 onClick={handleSaveRecipe}
                 className="rounded-3xl bg-link-hilight py-1 px-3 text-white font-bold hover:-translate-y-1 transition duration-300 ease-in-out"
@@ -142,7 +149,7 @@ export const SingleRecipe = () => {
           <div className="my-2 md:px-10">
             <p
               className="leading-7 text-sm border-t-[1px] border-link-hilight custom:border-0 py-5 custom:py-0"
-              dangerouslySetInnerHTML={{ __html: data?.summary }}
+              dangerouslySetInnerHTML={{ __html: editedSummary(data?.summary) }}
             ></p>
           </div>
         </div>
@@ -163,7 +170,7 @@ export const SingleRecipe = () => {
               key={index}
               className="flex justify-between mb-2 border-b-[1px] border-link-hilight"
             >
-              <span>{`${ingredient.nameClean}`}</span>
+              <span>{`${ingredient.originalName}`}</span>
               <span>{`${
                 Math.round(ingredient.measures.us.amount * 100) / 100
               } ${ingredient.measures.us.unitShort}`}</span>
