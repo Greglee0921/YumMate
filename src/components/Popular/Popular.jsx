@@ -35,7 +35,7 @@ export const Popular = () => {
           perPage: 4,
           breakpoints: {
             640: {
-              perPage: 1,
+              perPage: 2,
               arrows: false
             }
           },
@@ -44,7 +44,7 @@ export const Popular = () => {
           drag: 'free',
           gap: '1rem'
         }}
-        className="md:my-10 w-[85%] md:px-10"
+        className="md:my-10 md:w-[85%] md:px-10 w-full"
       >
         {popular.map((recipe) => (
           <SplideSlide className="" key={recipe.id}>
