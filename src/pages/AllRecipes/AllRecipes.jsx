@@ -31,9 +31,7 @@ export const AllRecipes = () => {
 
   useEffect(() => {
     if (offset.current > 0) {
-      console.log('scrollId: ', scrollId);
       const element = document.getElementById(`${scrollId}`);
-      console.log('element: ', element);
       element.scrollIntoView({ block: 'start', behavior: 'smooth' });
     }
   }, [allRecipesList]);
@@ -43,8 +41,6 @@ export const AllRecipes = () => {
       setAllRecipesList((allRecipesList.length = 0));
     }
     offset.current = 0;
-    console.log('allRecipesList: ', allRecipesList);
-    console.log('offset.current: ', offset.current);
     getAllRecipes();
   }, [params.searchTerm]);
 
