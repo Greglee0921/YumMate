@@ -1,5 +1,6 @@
 const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
 const recipeQueryAmount = 12;
+const autoCompleteAmount = 6;
 
 export const useSearchRecipesByQuery = async (string, offset) => {
   console.log('offset in query: ', offset);
@@ -25,4 +26,12 @@ export const getPopularRecipes = async () => {
   const popularRecipes = await data.json();
   // console.log('popularRecipes: ', popularRecipes);
   return popularRecipes;
+};
+
+export const getAutoComplete = async (string) => {
+  const data = await fetch(
+    `https://api.spoonacular.com/recipes/autocomplete?apiKey=${apiKey}&number=${autoCompleteAmount}&query=${string}`
+  );
+  const autoCompleteRecipes = await data.json();
+  return autoCompleteRecipes;
 };
