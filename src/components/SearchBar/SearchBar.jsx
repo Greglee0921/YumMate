@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// import { Autocomplete } from '../Autocomplete/Autocomplete.jsx';
+
 export const SearchBar = ({ nav }) => {
   const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
@@ -37,6 +39,7 @@ export const SearchBar = ({ nav }) => {
           // onKeyDown={handleKeyDown}
         />
       </form>
+      {/* <Autocomplete nav={nav} searchInput={searchInput} /> */}
     </>
   );
 };
