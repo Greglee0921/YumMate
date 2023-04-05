@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// import { Autocomplete } from '../Autocomplete/Autocomplete.jsx';
+import { Autocomplete } from '../Autocomplete/Autocomplete.jsx';
 
 export const SearchBar = ({ nav }) => {
   const [searchInput, setSearchInput] = useState('');
@@ -20,15 +19,19 @@ export const SearchBar = ({ nav }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/recipes/${searchInput}`);
+    setSearchInput('');
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="flex justify-center">
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="flex justify-center flex-col relative"
+      >
         <input
           className={
             nav
-              ? 'w-[5rem] md:w-[15rem] h-[2rem] bg-mainBg p-[0.75rem] md:p-[1rem] rounded-full'
+              ? 'w-[5rem] md:w-[15rem] h-[2.5rem] bg-mainBg p-[0.75rem] md:p-[1rem] rounded-full'
               : 'w-[20rem] md:w-[35rem] h-15 p-[1rem]'
           }
           type="search"
@@ -38,8 +41,8 @@ export const SearchBar = ({ nav }) => {
           onChange={handleChange}
           // onKeyDown={handleKeyDown}
         />
+        <Autocomplete nav={nav} searchInput={searchInput} />
       </form>
-      {/* <Autocomplete nav={nav} searchInput={searchInput} /> */}
-    </>
+    </div>
   );
 };

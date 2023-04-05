@@ -7,7 +7,7 @@ export const Navbar = () => {
   const nav = true;
 
   return (
-    <header className="flex h-[75px] justify-between items-center w-full bg-nav  px-2 md:px-7">
+    <header className="flex h-[75px] justify-between items-center w-full bg-nav  px-2 md:px-7 relative">
       <Link to={'/'} className="flex items-center gap-2">
         <img
           className="h-[60px] object-cover aspect-square"
